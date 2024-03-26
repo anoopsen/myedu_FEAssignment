@@ -1,0 +1,70 @@
+// @media (max-width:400px) {
+//     .header{
+//         display: flex;
+//     flex-direction: column;
+//     flex-wrap: nowrap;
+//     margin: 4px 20px;
+//     }
+//     .link{
+//         display: flex;
+//         flex-direction: column;
+//         gap: 6px;
+//     }
+//     .sub{
+//         font-weight: 700;
+//     margin: 23px 1px 4px 0px;
+//     }
+//     .email{
+//         display: flex;
+//     flex-direction: column;
+
+//     }
+// }
+.header {
+    display: none;
+    /* Hide the entire header by default */
+}
+
+/* Show the header only on screens with a maximum width of 768px (mobile devices) */
+@media only screen and (max-width: 768px) {
+    .header {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        margin: 4px 20px;
+        font-weight: 700;
+        font-family: Arial, sans-serif;
+    }
+
+    .link {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+
+    }
+
+    .sub {
+        // font-weight: 700;
+        margin: 23px 1px 4px 0px;
+        .subscribing{
+            font-weight: 100;
+            font-size: 13px;
+        }
+    }
+
+    .email {
+        display: flex;
+        flex-direction: column;
+       
+
+        input,
+        button {
+            font-size: 20px;
+            height: 31px;
+            margin: 10px;
+
+        }
+    }
+   
+
+}

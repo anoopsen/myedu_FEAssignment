@@ -1,0 +1,20 @@
+.conatiner{
+    width: 200vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-family: "Inter";
+
+    .overview{
+        display: flex;
+        margin-left: 20vh;
+        align-items: center;
+        justify-content: space-around;
+        width: 25vh;
+        font-size: 13px;
+    }
+
+    .copyright{
+        font-size: 13px;
+    }
+}

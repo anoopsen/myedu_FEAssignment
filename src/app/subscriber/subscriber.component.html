@@ -1,0 +1,153 @@
+<app-top-header></app-top-header>
+<div class="container">
+    <div class="form-container">
+        <form class="form" [formGroup]="subscriberForm" (ngSubmit)="onSubmit()">
+            <div class="left-section">
+                <div class="all-fields">
+                    <div class="form-heading">
+                        <h1 style="font-size: 24px; font-weight: 700; line-height: 32px;margin: 0;padding: 1px 0px 1px 0px;">
+                            Subscribe</h1>
+                        <p style="font-weight: 400; font-size: 16px; line-height: 24px; letter-spacing: 0.1px; margin: 0;">
+                            to our Monthly Surprise Box</p>
+                    </div>
+                    <hr style="color: #D0D5DD; margin-top: 16px;">
+                    <div class="form-section main-form">
+                        <h2 class="section-title">Contact Information</h2>
+                        <div class="form-group">
+                            <label for="full-name">Your Name</label>
+                            <input type="text" id="full-name" formControlName="fullName" placeholder="e.g Osama Alshathri">
+                        </div>
+                        <div class="errorMsg" *ngIf="f['fullName'].errors && f['fullName'].errors['required'] && (f['fullName'].dirty || f['fullName'].touched)">
+                            <div class="text-danger">Your Name is required</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" formControlName="email" placeholder="Osama@gmail.com">
+                        </div>
+                        <div class="errorMsg" *ngIf="f['email'].errors && f['email'].errors['required'] && (f['email'].dirty || f['email'].touched)">
+                            <div class="text-danger">email is required</div>
+                        </div>
+                        <div class="errorMsg" *ngIf="f['email'].errors && f['email'].errors['email'] && (f['email'].dirty || f['email'].touched)">
+                            <div class="text-danger">enter valid email</div>
+                        </div>
+                    </div>
+                    <div class="form-section">
+                        <h2 class="section-title">Child's Information</h2>
+                        <div class="form-group">
+                            <label for="child-name">Child's Full Name</label>
+                            <input type="text" id="child-name" formControlName="childFullName" placeholder="e.g Sarah Mohammad">
+                        </div>
+                        <div class="errorMsg" *ngIf="f['childFullName'].errors && f['childFullName'].errors['required'] && (f['childFullName'].dirty || f['childFullName'].touched)">
+                            <div class="text-danger">email is required</div>
+                        </div>
+                        <div class="date-selection">
+                            <label for="dob">Child's Date of Birth</label>
+                            <div class="date-select-input">
+                                <select id="date" formControlName="day">
+                                    <option value="" disabled selected>Date</option>
+                                    <option *ngFor="let date of dates" [value]="date">{{ date }}</option>
+                                </select>
+                                <select id="month" formControlName="month">
+                                    <option value="" disabled selected>Month</option>
+                                    <option *ngFor="let month of months" [value]="month">{{ month }}</option>
+                                </select>
+                                <select id="year" formControlName="year">
+                                    <option value="" disabled selected>Year</option>
+                                    <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="grade-selection">
+                            <label for="grade">Grade</label>
+                            <select id="grade" formControlName="grade">
+                                <option value="" disabled selected>Select Grade</option>
+                                <option *ngFor="let grade of grades" [value]="grade.value">{{ grade.value }}</option>
+                            </select>
+                        </div>
+                        <div class="gender-selection">
+                            <h2>Gender</h2>
+                            <div class="gender-fields">
+                                <div style="display: flex;  justify-content: space-between; border: 1px solid #D0D5DD; border-radius: 8px; padding: 10px 14px 10px 14px; width: 270px;align-items: center;">
+                                    <label for="boy" style="margin: 0">Boy</label>
+                                    <input type="radio" id="boy" formControlName="gender" value="boy">
+                                </div>
+                                <div style="display: flex; width: 270px; justify-content: space-between; border: 1px solid #D0D5DD; border-radius: 8px; padding: 10px 14px 10px 14px; align-items: center;">
+                                    <label for="girl" style="margin: 0">Girl</label>
+                                    <input type="radio" id="girl" formControlName="gender" value="girl">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-section">
+                        <h2 class="section-title">As a parent select any 3 topics</h2>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            <div class="form-group" *ngFor="let topic of topics">
+                                <input type="button" [id]="topic.id" [name]="topic.name" [value]="topic.value" class="topic-btn"
+                                    [class.selected]="topic.selected" (click)="toggleSelection(topic)"
+                                    [style.background-color]="topic.selected ? '#F4F1FE' : 'inherit'"
+                                    [style.border-color]="topic.selected ? 'blue' : 'inherit'"
+                                    [style.font-weight]="topic.selected ? 'bold' : 'normal'">
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="f['topics'].errors && f['topics'].errors['insufficientTopics'] && (f['topics'].dirty || f['topics'].touched)">
+                        <div class="text-danger">{{ f['topics'].errors['insufficientTopics'] }}</div>
+                      </div>
+                </div>
+                <button type="submit" class="btn">Continue to payment</button>
+            </div>
+            <div class="right-section">
+                <div class="form-section payment-form">
+                    <div class="form-heading">
+                        <h1 style="font-size: 24px; font-weight: 700; line-height: 32px;margin: 0;padding: 1px 0px 1px 0px;">Summary</h1>
+                        <p style="font-weight: 400; font-size: 16px; line-height: 24px; letter-spacing: 0.1px; margin: 0;">of your Monthly Surprise Box</p>
+                    </div>
+                    <div class="items-box">
+                        <div>
+                            <p>Mystery Box</p>
+                            <p>X{{qty}}</p>
+                        </div>
+                        <div>
+                            <p class="price">SAR <b>456</b></p>
+                            <p>Monthly</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="payment-summary">
+                            <div class="amount-details">
+                                <p class="subtotal-price">Subtotal</p>
+                                <p class="total-price">SAR <b>{{subTotal}}</b></p>
+                            </div>
+                            <div class="amount-details">
+                                <p class="subtotal-price">Shipping</p>
+                                <p class="total-price">{{shipping}}</p>
+                            </div>
+                            <div class="amount-details">
+                                <p class="subtotal-price">Taxes</p>
+                                <p class="total-price">SAR <b>{{tax}}</b></p>
+                            </div>
+                        </div>
+                        <div class="total-summary">
+                            <p class="label">Total</p>
+                            <div>
+                                <p class="total-price">SAR <b>{{totalAmount}}</b></p>
+                                <p>Monthly</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" class="btn mobile-btn" [disabled]="subscriberForm.invalid" [class.disabled]="subscriberForm.invalid">Continue to payment</button>
+                </div>
+                <div *ngIf="showPopup" class="popup">
+                    <div class="popup-content">
+                        <h2>Payment Successful</h2>
+                        <p>Your payment has been successfully processed.</p>
+                        <button (click)="showPopup = false" class="popupBtn">OK</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<app-sub-footer></app-sub-footer>

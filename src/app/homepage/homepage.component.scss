@@ -1,0 +1,247 @@
+// Define variables for colors
+$button-bg-color: #ffffff; // white
+$button-text-color: #896AF9;
+
+
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #AB95F9;
+
+    .content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+
+        .discover {
+            margin: 0 20vw;
+
+            p {
+                font-size: 40px;
+                font-weight: 900;
+                color: white;
+                font-family: serif;
+                line-height: 35px;
+                text-shadow: 2px 2px #896AF9;
+            }
+        }
+
+        .info {
+            margin: 0 8vw;
+
+            p {
+                font-weight: 500;
+                font-size: 19px;
+                color: white;
+            }
+        }
+
+        ion-button {
+            background-color: #ffffff; // white
+            color: #896AF9;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1em; // Example font size
+            cursor: pointer;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+            border-bottom: 4px solid;
+            border-right: 5px solid;
+            border-radius: 10px;
+        font-weight: 900;
+
+        &:hover {
+            background-color: #896AF9;
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 0.8em;
+        }
+    }
+
+    .responsive-img {
+        max-width: 100%;
+        height: auto;
+
+        padding: 0 20px; // Add padding to create space from left and right
+    }
+
+    img {
+        width: 98%;
+    }
+
+}
+}
+
+
+
+// Variables
+$button-bg-color: #ffffff; // white
+$button-text-color: #896AF9;
+
+// Second Section Styles
+.section-second {
+    height: 100%;
+    background: #FFF9E6;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .second-heading {
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+        font-weight: 600;
+
+        p {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
+            color: #333;
+            margin-bottom: 10px;
+
+            @media (max-width: 768px) {
+                font-size: 19px;
+                line-height: 20px;
+                font-weight: 500;
+            }
+        }
+
+        h1 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            font-size: 48px;
+            color: #333;
+            margin-bottom: 20px;
+
+            @media (max-width: 768px) {
+                font-size: 36px;
+            }
+        }
+    }
+
+    .second-section-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .second-box {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 20px;
+
+            .box {
+
+                width: 400px; // Adjust width as needed
+                padding: 20px;
+                text-align: center;
+                border-radius: 10px; // Rounded corners
+
+                .box-circle {
+
+                    width: 100px; // Adjust size as needed
+                    height: 100px; // Adjust size as needed
+                    background-color: #FFF; // White background color
+                    border-radius: 50%; // Circular shape
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 0 auto; // Center horizontally
+                    margin-bottom: 20px; // Add some space between circle and other content
+
+                    img {
+                        max-width: 80%; // Adjust image size as needed
+                        max-height: 80%; // Adjust image size as needed
+                        border-radius: 50%; // Make image circular
+                    }
+                }
+
+                .heading {
+                    h5 {
+                        font-size: 16px;
+                        margin-bottom: 10px;
+                    }
+                }
+
+                .para-heading {
+                    h1 {
+                        font-size: 24px;
+                        font-weight: bold;
+                        margin-bottom: 10px;
+                    }
+                }
+
+                .content {
+                    p {
+                        font-size: 16px;
+                        line-height: 24px;
+                        color: #666;
+                    }
+                }
+
+            }
+
+            @media (max-width: 768px) {
+                flex-direction: column;
+                width: 80%; // Adjust width for smaller screens
+
+
+            }
+        }
+    }
+
+    ion-button {
+        background-color: $button-bg-color;
+        color: $button-text-color;
+        padding: 10px 20px;
+        border: 2px solid $button-text-color;
+        border-radius: 5px;
+        font-size: 1em; // Example font size
+        cursor: pointer;
+        margin-bottom: 20px; // Adjust margin as needed
+        transition: all 0.3s ease;
+        border-right: 5px solid;
+    border-bottom: 4px solid;
+    font-weight: 700;
+
+
+        &:hover {
+            background-color: $button-text-color;
+            color: $button-bg-color;
+        }
+
+        @media (max-width: 768px) {
+            // Adjust styles for smaller screens
+            font-size: 0.8em; // Example font size for smaller screens
+        }
+    }
+}
+
+
+img {
+    width: 95% !important;
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    img {
+
+        width: 80% !important;
+        height: 100%;
+    }
+
+    .box {
+        width: 95% !important;
+        height: 100%;
+    }
+}

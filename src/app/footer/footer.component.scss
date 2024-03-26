@@ -1,0 +1,73 @@
+ion-footer {
+    position: relative;
+    width: 90%;
+    top: 5vh;
+    left: 5vw;
+}
+
+.conatiner {
+    width: 171vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 3px solid gray;
+    position: absolute;
+    font-size: 1vh;
+
+
+    .policy{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 55%;
+        margin-top: 1vh;
+
+        a {
+            color: black;
+            text-decoration: underline;
+        }
+        a:hover {
+            cursor: pointer;
+        }
+    }
+
+    .rights{
+        margin-top: 1vh;
+    }
+}
+
+@media(max-width:400px){
+
+    .conatiner{
+        width: 41vh;
+        align-items: flex-start;
+        flex-direction: column;
+
+        .policy{
+            align-items: flex-start;
+            flex-direction: column;
+            font-size: 15px;
+            gap: 7px;
+        }
+
+        .rights{
+            font-size: 15px;
+        }
+    }
+}
+
+@media (min-width: 600px){
+    .conatiner{
+       
+        // padding: 0 4vw;
+
+        .policy {
+            width: 25vw;
+            font-size: 14px;
+        }
+
+        .rights {
+            font-size: 14px;
+        }
+    }
+}
